@@ -1,11 +1,11 @@
 Name:           qmmp-plugin-pack-freeworld
-Version:        0.6.6
+Version:        0.7.0
 Release:        1%{?dist}
 Summary:        A set of extra plugins for Qmmp
 
 Group:          Applications/Multimedia
 License:        GPLv2+
-URL:            http://qmmp.ylsoftware.com/plugins_en.php
+URL:            http://qmmp.ylsoftware.com/plugins.php
 Source0:        http://qmmp.ylsoftware.com/files/plugins/qmmp-plugin-pack-%{version}.tar.bz2
 Source1:        qmmp-plugin-pack-filter-provides.sh
 %define         _use_internal_dependency_generator 0
@@ -46,6 +46,11 @@ make DESTDIR=%{buildroot} install -C src/Input/mpg123
 
 
 %changelog
+* Thu May 02 2013 Karel Volný <kvolny@redhat.com> 0.7.0-1
+- new version
+- see upstream changelog at http://qmmp.ylsoftware.com/index.php
+- project URLs changed
+
 * Tue Apr 02 2013 Karel Volný <kvolny@redhat.com> 0.6.6-1
 - new version
 - see upstream changelog at http://qmmp.ylsoftware.com/index_en.php
