@@ -1,5 +1,5 @@
 Name:           qmmp-plugin-pack-freeworld
-Version:        0.7.0
+Version:        0.7.1
 Release:        1%{?dist}
 Summary:        A set of extra plugins for Qmmp
 
@@ -46,6 +46,9 @@ make DESTDIR=%{buildroot} install -C src/Input/mpg123
 
 
 %changelog
+* Fri Jun 21 2013 Karel Volný <kvolny@redhat.com> 0.7.1-1
+- new version
+
 * Thu May 02 2013 Karel Volný <kvolny@redhat.com> 0.7.0-1
 - new version
 - see upstream changelog at http://qmmp.ylsoftware.com/index.php
