@@ -1,6 +1,6 @@
 Name:           qmmp-plugin-pack-freeworld
 Version:        0.7.4
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A set of extra plugins for Qmmp
 
 Group:          Applications/Multimedia
@@ -46,6 +46,9 @@ make DESTDIR=%{buildroot} install -C src/Input/mpg123
 
 
 %changelog
+* Mon Sep 01 2014 Sérgio Basto <sergio@serjux.com> - 0.7.4-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
+
 * Fri Jan 24 2014 Karel Volný <kvolny@redhat.com> 0.7.4-1
 - new version
 - see the upstream changelog at http://qmmp.ylsoftware.com/index.php
