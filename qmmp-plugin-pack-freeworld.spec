@@ -1,5 +1,5 @@
 Name:           qmmp-plugin-pack-freeworld
-Version:        0.9.3
+Version:        1.1.1
 Release:        1%{?dist}
 Summary:        A set of extra plugins for Qmmp
 
@@ -11,11 +11,10 @@ Source1:        qmmp-plugin-pack-filter-provides.sh
 %define         _use_internal_dependency_generator 0
 %define         __find_provides %{_builddir}/%{buildsubdir}/qmmp-plugin-pack-filter-provides.sh
 
-BuildRequires:  qmmp >= %{version}
-BuildRequires:  qmmp-devel >= %{version}
+BuildRequires:  qmmp-devel >= 1.1.0
 BuildRequires:  cmake
 BuildRequires:  libmpg123-devel
-BuildRequires:  qt-devel
+BuildRequires:  qt5-linguist
 BuildRequires:  taglib-devel
 
 %description
@@ -46,6 +45,11 @@ make DESTDIR=%{buildroot} install -C src/Input/mpg123
 
 
 %changelog
+* Mon Jul 11 2016 Karel Volný <kvolny@redhat.com> 1.1.1-1
+- new version 1.1.1
+- see the upstream changelog at http://qmmp.ylsoftware.com/index.php
+- uses Qt5
+
 * Mon Jan 04 2016 Karel Volný <kvolny@redhat.com> 0.9.3-1
 - new version 0.9.3
 - see the upstream changelog at http://qmmp.ylsoftware.com/index.php
