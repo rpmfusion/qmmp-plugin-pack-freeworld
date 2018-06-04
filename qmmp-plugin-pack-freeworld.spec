@@ -1,5 +1,5 @@
 Name:           qmmp-plugin-pack-freeworld
-Version:        1.1.1
+Version:        1.2.1
 Release:        1%{?dist}
 Summary:        A set of extra plugins for Qmmp
 
@@ -13,14 +13,14 @@ Source1:        qmmp-plugin-pack-filter-provides.sh
 
 BuildRequires:  qmmp-devel >= 1.1.0
 BuildRequires:  cmake
-BuildRequires:  libmpg123-devel
+BuildRequires:  ffmpeg-devel
 BuildRequires:  qt5-linguist
-BuildRequires:  taglib-devel
+#BuildRequires:  taglib-devel
 
 %description
 Plugins for Qmmp from Qmmp Plugin Pack that cannot be included in Fedora.
 
- * MPG123 - MPEG v1/2 layer1/2/3 decoder using of libmpg123 library
+ * FFVideo - video playback engine based on FFmpeg library
 
 %prep
 %setup -q -n qmmp-plugin-pack-%{version}
@@ -29,22 +29,31 @@ chmod +x qmmp-plugin-pack-filter-provides.sh
 
 %build
 %cmake \
+    -D USE_MPG123:BOOL=FALSE \
     -D USE_FFAP:BOOL=FALSE \
-    -D USE_QSUI:BOOL=FALSE \
+    -D USE_XMP:BOOL=FALSE \
+    -D USE_SRC:BOOL=FALSE \
+    -D USE_GOOM:BOOL=FALSE \
+    -D USE_HISTORY:BOOL=FALSE \
     .
-make %{?_smp_mflags} -C src/Input/mpg123
+make %{?_smp_mflags} -C src/Engines/ffvideo
 
 
 %install
-make DESTDIR=%{buildroot} install -C src/Input/mpg123
+make DESTDIR=%{buildroot} install -C src/Engines/ffvideo
 
 
 %files
 %doc AUTHORS COPYING ChangeLog.rus README README.RUS
-%{_libdir}/qmmp/Input/*.so
+%{_libdir}/qmmp/Engines/*.so
 
 
 %changelog
+* Mon Jun 04 2018 Karel Volný <kvolny@redhat.com> 1.2.1-1
+- new version 1.2.1
+- see the upstream changelog at http://qmmp.ylsoftware.com/index.php
+- includes only ffvideo, the rest is in Fedora
+
 * Mon Jul 11 2016 Karel Volný <kvolny@redhat.com> 1.1.1-1
 - new version 1.1.1
 - see the upstream changelog at http://qmmp.ylsoftware.com/index.php
