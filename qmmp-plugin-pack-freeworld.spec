@@ -1,6 +1,6 @@
 Name:           qmmp-plugin-pack-freeworld
 Version:        1.2.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A set of extra plugins for Qmmp
 
 Group:          Applications/Multimedia
@@ -49,6 +49,9 @@ make DESTDIR=%{buildroot} install -C src/Engines/ffvideo
 
 
 %changelog
+* Mon Mar 04 2019 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 1.2.3-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
+
 * Sun Sep 30 2018 Karel Volný <kvolny@redhat.com> 1.2.3-1
 - new version 1.2.3
 - see the upstream changelog at http://qmmp.ylsoftware.com/index.php
