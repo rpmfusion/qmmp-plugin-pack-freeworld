@@ -1,6 +1,6 @@
 Name:           qmmp-plugin-pack-freeworld
-Version:        1.2.3
-Release:        3%{?dist}
+Version:        1.3.1
+Release:        1%{?dist}
 Summary:        A set of extra plugins for Qmmp
 
 Group:          Applications/Multimedia
@@ -35,6 +35,7 @@ chmod +x qmmp-plugin-pack-filter-provides.sh
     -D USE_SRC:BOOL=FALSE \
     -D USE_GOOM:BOOL=FALSE \
     -D USE_HISTORY:BOOL=FALSE \
+    -D PLUGIN_DIR=%{_lib}/qmmp \
     .
 make %{?_smp_mflags} -C src/Engines/ffvideo
 
@@ -49,6 +50,10 @@ make DESTDIR=%{buildroot} install -C src/Engines/ffvideo
 
 
 %changelog
+* Wed Aug 14 2019 Karel Volný <kvolny@redhat.com> 1.3.1-1
+- new version 1.3.1
+- see the upstream changelog at http://qmmp.ylsoftware.com/index.php
+
 * Wed Aug 07 2019 Leigh Scott <leigh123linux@gmail.com> - 1.2.3-3
 - Rebuild for new ffmpeg version
 
