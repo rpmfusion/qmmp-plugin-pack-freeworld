@@ -1,5 +1,5 @@
 Name:           qmmp-plugin-pack-freeworld
-Version:        1.3.2
+Version:        1.4.0
 Release:        1%{?dist}
 Summary:        A set of extra plugins for Qmmp
 
@@ -29,19 +29,18 @@ chmod +x qmmp-plugin-pack-filter-provides.sh
 
 %build
 %cmake \
-    -D USE_MPG123:BOOL=FALSE \
+    -D USE_YTB:BOOL=FALSE \
     -D USE_FFAP:BOOL=FALSE \
     -D USE_XMP:BOOL=FALSE \
     -D USE_SRC:BOOL=FALSE \
     -D USE_GOOM:BOOL=FALSE \
-    -D USE_HISTORY:BOOL=FALSE \
     -D PLUGIN_DIR=%{_lib}/qmmp \
     .
-make %{?_smp_mflags} -C src/Engines/ffvideo
+make %{?_smp_mflags} -C %{_vpath_builddir}/src/Engines/ffvideo
 
 
 %install
-make DESTDIR=%{buildroot} install -C src/Engines/ffvideo
+make DESTDIR=%{buildroot} install -C %{_vpath_builddir}/src/Engines/ffvideo
 
 
 %files
@@ -50,6 +49,11 @@ make DESTDIR=%{buildroot} install -C src/Engines/ffvideo
 
 
 %changelog
+* Tue Aug 18 2020 Karel Volný <kvolny@redhat.com> 1.4.0-1
+- new version 1.4.0
+- see the upstream changelog at http://qmmp.ylsoftware.com/index.php
+- adapted to F33 System-Wide Change: CMake to do out-of-source builds
+
 * Tue Mar 31 2020 Karel Volný <kvolny@redhat.com> 1.3.2-1
 - new version 1.3.2
 - see the upstream changelog at http://qmmp.ylsoftware.com/index.php
