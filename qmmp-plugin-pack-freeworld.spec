@@ -1,6 +1,6 @@
 Name:           qmmp-plugin-pack-freeworld
 Version:        1.4.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A set of extra plugins for Qmmp
 
 Group:          Applications/Multimedia
@@ -49,6 +49,9 @@ make DESTDIR=%{buildroot} install -C %{_vpath_builddir}/src/Engines/ffvideo
 
 
 %changelog
+* Fri Jan  1 2021 Leigh Scott <leigh123linux@gmail.com> - 1.4.0-2
+- Rebuilt for new ffmpeg snapshot
+
 * Tue Aug 18 2020 Karel Volný <kvolny@redhat.com> 1.4.0-1
 - new version 1.4.0
 - see the upstream changelog at http://qmmp.ylsoftware.com/index.php
