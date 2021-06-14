@@ -1,5 +1,5 @@
 Name:           qmmp-plugin-pack-freeworld
-Version:        1.4.1
+Version:        1.5.0
 Release:        1%{?dist}
 Summary:        A set of extra plugins for Qmmp
 
@@ -11,7 +11,7 @@ Source1:        qmmp-plugin-pack-filter-provides.sh
 %define         _use_internal_dependency_generator 0
 %define         __find_provides %{_builddir}/%{buildsubdir}/qmmp-plugin-pack-filter-provides.sh
 
-BuildRequires:  qmmp-devel >= 1.1.0
+BuildRequires:  qmmp-devel >= 1.5.0
 BuildRequires:  cmake
 BuildRequires:  ffmpeg-devel
 BuildRequires:  qt5-linguist
@@ -49,6 +49,9 @@ make DESTDIR=%{buildroot} install -C %{_vpath_builddir}/src/Engines/ffvideo
 
 
 %changelog
+* Wed Jun 09 2021 Karel Volný <kvolny@redhat.com> 1.5.0-1
+- new version 1.5.0
+
 * Wed May 12 2021 Karel Volný <kvolny@redhat.com> 1.4.1-1
 - new version 1.4.1
 
