@@ -1,5 +1,5 @@
 Name:           qmmp-plugin-pack-freeworld
-Version:        1.5.0
+Version:        1.5.1
 Release:        1%{?dist}
 Summary:        A set of extra plugins for Qmmp
 
@@ -49,6 +49,9 @@ make DESTDIR=%{buildroot} install -C %{_vpath_builddir}/src/Engines/ffvideo
 
 
 %changelog
+* Tue Jul 20 2021 Karel Volný <kvolny@redhat.com> 1.5.1-1
+- new version 1.5.1
+
 * Wed Jun 09 2021 Karel Volný <kvolny@redhat.com> 1.5.0-1
 - new version 1.5.0
 
