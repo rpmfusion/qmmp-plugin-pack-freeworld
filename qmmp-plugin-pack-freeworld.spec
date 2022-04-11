@@ -1,21 +1,22 @@
 Name:           qmmp-plugin-pack-freeworld
-Version:        1.5.1
-Release:        3%{?dist}
+Version:        2.0.2
+Release:        1%{?dist}
 Summary:        A set of extra plugins for Qmmp
 
 Group:          Applications/Multimedia
 License:        GPLv2+
 URL:            http://qmmp.ylsoftware.com/plugins.php
 Source0:        http://qmmp.ylsoftware.com/files/plugins/qmmp-plugin-pack-%{version}.tar.bz2
-Source1:        qmmp-plugin-pack-filter-provides.sh
-%define         _use_internal_dependency_generator 0
-%define         __find_provides %{_builddir}/%{buildsubdir}/qmmp-plugin-pack-filter-provides.sh
 
-BuildRequires:  qmmp-devel >= 1.5.0
+BuildRequires:  qmmp-devel >= 2.0.0
 BuildRequires:  cmake
 BuildRequires:  ffmpeg-devel
-BuildRequires:  qt5-linguist
+BuildRequires:  qt6-qttools-devel
 #BuildRequires:  taglib-devel
+
+Supplements:    qmmp-plugin-pack
+
+%global __provides_exclude_from ^%{_libdir}/qmmp/.*\\.so$
 
 %description
 Plugins for Qmmp from Qmmp Plugin Pack that cannot be included in Fedora.
@@ -24,8 +25,6 @@ Plugins for Qmmp from Qmmp Plugin Pack that cannot be included in Fedora.
 
 %prep
 %setup -q -n qmmp-plugin-pack-%{version}
-cp %{SOURCE1} .
-chmod +x qmmp-plugin-pack-filter-provides.sh
 
 %build
 %cmake \
@@ -34,8 +33,7 @@ chmod +x qmmp-plugin-pack-filter-provides.sh
     -D USE_XMP:BOOL=FALSE \
     -D USE_SRC:BOOL=FALSE \
     -D USE_GOOM:BOOL=FALSE \
-    -D PLUGIN_DIR=%{_lib}/qmmp \
-    .
+    -D PLUGIN_DIR=%{_lib}/qmmp
 make %{?_smp_mflags} -C %{_vpath_builddir}/src/Engines/ffvideo
 
 
@@ -49,6 +47,13 @@ make DESTDIR=%{buildroot} install -C %{_vpath_builddir}/src/Engines/ffvideo
 
 
 %changelog
+* Fri Apr 08 2022 Karel Volný <kvolny@redhat.com> 2.0.2-1
+- new version 2.0.2
+- uses Qt6
+- update provides filtering
+- update cmake usage
+- add Supplements
+
 * Wed Feb 09 2022 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 1.5.1-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_36_Mass_Rebuild
 
