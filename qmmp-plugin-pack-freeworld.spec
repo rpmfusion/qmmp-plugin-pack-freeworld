@@ -1,5 +1,5 @@
 Name:           qmmp-plugin-pack-freeworld
-Version:        2.0.2
+Version:        2.1.0
 Release:        1%{?dist}
 Summary:        A set of extra plugins for Qmmp
 
@@ -30,7 +30,7 @@ Plugins for Qmmp from Qmmp Plugin Pack that cannot be included in Fedora.
 %cmake \
     -D USE_YTB:BOOL=FALSE \
     -D USE_FFAP:BOOL=FALSE \
-    -D USE_XMP:BOOL=FALSE \
+    -D USE_MODPLUG:BOOL=FALSE \
     -D USE_SRC:BOOL=FALSE \
     -D USE_GOOM:BOOL=FALSE \
     -D PLUGIN_DIR=%{_lib}/qmmp
@@ -47,6 +47,9 @@ make DESTDIR=%{buildroot} install -C %{_vpath_builddir}/src/Engines/ffvideo
 
 
 %changelog
+* Thu May 19 2022 Karel Volný <kvolny@redhat.com> 2.1.0-1
+- new version 2.1.0
+
 * Fri Apr 08 2022 Karel Volný <kvolny@redhat.com> 2.0.2-1
 - new version 2.0.2
 - uses Qt6
